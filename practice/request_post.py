@@ -11,6 +11,9 @@ data = {
     'custemail': 'test@gmail.com'
 }
 
-response = requests.post('https://httpbin.org/post', headers=headers, data=data)
+# Need for cookie data get
+variable = requests.Session()
+
+response = variable.post('https://httpbin.org/post', headers=headers, data=data, allow_redirects=True)
 
 print(response.json())
